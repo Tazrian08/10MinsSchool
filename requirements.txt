@@ -1,0 +1,25 @@
+# Core Libraries
+numpy
+nltk
+faiss-cpu
+
+# RAG Components
+sentence-transformers
+transformers
+sentencepiece
+protobuf
+
+# API
+flask
+
+# PDF to Image Conversion
+pdf2image
+
+# OCR
+pytesseract
+Pillow
+
+# Bengali OCR language pack (optional instruction)
+# Make sure Bengali (`ben`) is installed in Tesseract OCR system
+
+# Ensure the correct model versions are accessible (no need to pin versions unless required)
