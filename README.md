@@ -202,7 +202,6 @@ were used with worse results.
 
 - ✅ REST API implemented via Flask
 - ✅ Evaluation via groundedness + relevance
-- ⛔ No front-end GUI or LangChain used for this Level-1 demo
 
 ---
 
