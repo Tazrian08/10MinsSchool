@@ -12,6 +12,7 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 - Embedding + FAISS vector store for similarity search
 - RAG-based QA using XLM-RoBERTa
 - REST API for querying
+- Chat History
 - Evaluation: relevance score + groundedness check
 
 ---
