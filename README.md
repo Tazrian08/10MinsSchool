@@ -101,7 +101,6 @@ Response:
 ```
 Sample questions and generated answers::
 ```Questions:
-{
 Question: অনুপমের পিসতুতো ভাইয়ের নাম কী?
 Answer: বিনুদাদা
 Question: How old was Onupom?
@@ -118,7 +117,7 @@ Question: অপরিচিতা কোন পত্রিকায় প্�
 Answer: সবুজপত্র
 Question: When did Rabindranath Tagore die?
 Answer: ৭ আগস্ট, ১৯৪১
-}
+
 
 ```
 
