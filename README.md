@@ -103,22 +103,27 @@ Sample questions and generated answers::
 ```Questions:
 Question: অনুপমের পিসতুতো ভাইয়ের নাম কী?
 Answer: বিনুদাদা
+
 Question: How old was Onupom?
 Answer: সাতাশ
+
 Question: কাকে অনুপমের ভাগ্য দেবতা বলে উল্লেখ করা হয়েছে?
 Answer: মামা
+
 Question: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
 Answer: শস্তুনাথবাবু
+
 Question: রবীন্দ্রনাথ ঠাকুরের জন্ম কোথায়?
 Answer: জোড়ার্সীকো, কলকাতা, ভারত।
+
 Question: রবীন্দ্রনাথ ঠাকুরের জন্ম কত সালে?
 Answer: ৭ মে, ১৮৬১
+
 Question: অপরিচিতা কোন পত্রিকায় প্রথম প্রকাশিত হয়?
 Answer: সবুজপত্র
+
 Question: When did Rabindranath Tagore die?
 Answer: ৭ আগস্ট, ১৯৪১
-
-
 ```
 
 ---
