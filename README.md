@@ -48,12 +48,12 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 
 1. **Install Tesseract & Bengali Language Pack**
    - Download from: https://github.com/tesseract-ocr/tesseract
-   - Add to PATH.
+   - Add to System Variables PATH.
    - Ensure Bengali language pack (`ben.traineddata`) is installed in `tessdata`.
 
 2. **Install Poppler for `pdf2image`**
    - Windows: Download from https://github.com/oschwartz10612/poppler-windows/releases/
-   - Add `bin/` folder to PATH.
+   - Add `bin/` folder to System Variables PATH.
 
 3. **Install Python Dependencies**
    ```bash
@@ -74,22 +74,56 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 
 ## 🧪 Sample Queries & Outputs
 
-Try via `/ask` endpoint with:
+Try via `/ask` endpoint with (Tested using POSTMAN)
+Example API call: http://127.0.0.1:5000/ask
 
-```json
+```JSON Format
 {
   "query": "অনুপমের পিসতুতো ভাইয়ের নাম কী?"
 }
 ```
 
 Response:
-```json
+```JSON
 {
-  "answer": "বিনুদাদা",
-  "grounded": true,
-  "relevance": 0.8231,
-  ...
+    "answer": "বিনুদাদা,",
+    "chat_history": [
+        [
+            "অনুপমের পিসতুতো ভাইয়ের নাম কী?",
+            "বিনুদাদা,"
+        ]
+    ],
+    "grounded": true,
+    "query": "অনুপমের পিসতুতো ভাইয়ের নাম কী?",
+    "relevance": 0.7864
 }
+
+```
+Sample questions and generated answers::
+```Questions:
+Question: অনুপমের পিসতুতো ভাইয়ের নাম কী?
+Answer: বিনুদাদা
+
+Question: How old was Onupom?
+Answer: সাতাশ
+
+Question: কাকে অনুপমের ভাগ্য দেবতা বলে উল্লেখ করা হয়েছে?
+Answer: মামা
+
+Question: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
+Answer: শস্তুনাথবাবু
+
+Question: রবীন্দ্রনাথ ঠাকুরের জন্ম কোথায়?
+Answer: জোড়ার্সীকো, কলকাতা, ভারত।
+
+Question: রবীন্দ্রনাথ ঠাকুরের জন্ম কত সালে?
+Answer: ৭ মে, ১৮৬১
+
+Question: অপরিচিতা কোন পত্রিকায় প্রথম প্রকাশিত হয়?
+Answer: সবুজপত্র
+
+Question: When did Rabindranath Tagore die?
+Answer: ৭ আগস্ট, ১৯৪১
 ```
 
 ---
@@ -107,8 +141,9 @@ Response:
 
 ### 1. **Text Extraction Method**
 **Tool:** `pytesseract` + `pdf2image`  
-**Reason:** The original PDF was scanned Bengali text, requiring OCR.  
-**Challenge:** Font/spacing inconsistencies produced noise, mitigated by cleaning and manual review.
+**Reason:** The original PDF text used ANSI encoding. Therefore, OCR was used to extract text.  
+**Challenge:** Libraries like PyMuPDF (a.k.a fitz) cannot be used for ANSI encoding. Had to switch to OCR for text extraction. 
+               Lack of Bangla PDF parser and extraction tools were also a big challenge.
 
 ---
 
@@ -120,7 +155,9 @@ Response:
 
 ### 3. **Embedding Model**
 **Used:** `intfloat/multilingual-e5-large`  
-**Why:** It supports Bengali and English, and produces high-quality sentence embeddings optimized for semantic similarity.
+**Why:** It supports Bengali and English, and produces high-quality sentence embeddings optimized for semantic similarity. 
+Other models like "l3cube-pune/bengali-sentence-similarity-sbert", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+were used with worse results.
 
 ---
 
