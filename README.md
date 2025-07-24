@@ -48,12 +48,12 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 
 1. **Install Tesseract & Bengali Language Pack**
    - Download from: https://github.com/tesseract-ocr/tesseract
-   - Add to PATH.
+   - Add to System Variables PATH.
    - Ensure Bengali language pack (`ben.traineddata`) is installed in `tessdata`.
 
 2. **Install Poppler for `pdf2image`**
    - Windows: Download from https://github.com/oschwartz10612/poppler-windows/releases/
-   - Add `bin/` folder to PATH.
+   - Add `bin/` folder to System Variables PATH.
 
 3. **Install Python Dependencies**
    ```bash
@@ -74,7 +74,7 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 
 ## 🧪 Sample Queries & Outputs
 
-Try via `/ask` endpoint with:
+Try via `/ask` endpoint with (Tested using POSTMAN):
 
 ```json
 {
@@ -85,10 +85,16 @@ Try via `/ask` endpoint with:
 Response:
 ```json
 {
-  "answer": "বিনুদাদা",
-  "grounded": true,
-  "relevance": 0.8231,
-  ...
+    "answer": "বিনুদাদা,",
+    "chat_history": [
+        [
+            "অনুপমের পিসতুতো ভাইয়ের নাম কী?",
+            "বিনুদাদা,"
+        ]
+    ],
+    "grounded": true,
+    "query": "অনুপমের পিসতুতো ভাইয়ের নাম কী?",
+    "relevance": 0.7864
 }
 ```
 
@@ -107,8 +113,9 @@ Response:
 
 ### 1. **Text Extraction Method**
 **Tool:** `pytesseract` + `pdf2image`  
-**Reason:** The original PDF was scanned Bengali text, requiring OCR.  
-**Challenge:** Font/spacing inconsistencies produced noise, mitigated by cleaning and manual review.
+**Reason:** The original PDF text used ANSI encoding. Therefore, OCR was used to extract text.  
+**Challenge:** Libraries like PyMuPDF (a.k.a fitz) cannot be used for ANSI encoding. Had to switch to OCR for text extraction. 
+               Lack of Bangla PDF parser and extraction tools were also a big challenge.
 
 ---
 
@@ -120,7 +127,9 @@ Response:
 
 ### 3. **Embedding Model**
 **Used:** `intfloat/multilingual-e5-large`  
-**Why:** It supports Bengali and English, and produces high-quality sentence embeddings optimized for semantic similarity.
+**Why:** It supports Bengali and English, and produces high-quality sentence embeddings optimized for semantic similarity. 
+Other models like "l3cube-pune/bengali-sentence-similarity-sbert", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+were used with worse results.
 
 ---
 
