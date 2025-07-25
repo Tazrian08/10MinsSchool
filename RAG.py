@@ -19,7 +19,7 @@ lines = [line.strip() for line in text_content.splitlines() if line.strip()]
 chunk_size = 10
 chunks = [" ".join(lines[i:i+chunk_size]) for i in range(0, len(lines), chunk_size)]
 
-# Embeddings
+
 model_embed = SentenceTransformer("intfloat/multilingual-e5-large")
 corpus_embeddings = np.vstack([
     model_embed.encode(text, normalize_embeddings=True) for text in chunks
