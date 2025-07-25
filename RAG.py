@@ -48,7 +48,7 @@ def compute_relevance(query_embedding, retrieved_embeddings):
     avg_sim = float(np.mean(sims))
     return round(avg_sim, 4)
 
-# --- Answer Generator with Evaluation ---
+
 def generate_answer(query, k=6):
     memory_context = "\n".join([f"Q: {q}\nA: {a}" for q, a in short_term_memory[-3:]])
     query_embedding = model_embed.encode([query], normalize_embeddings=True)
