@@ -150,7 +150,7 @@ Answer: ৭ আগস্ট, ১৯৪১ / ২২ শ্রাবণ, ১৩৪
 
 ### 2. **Chunking Strategy**
 **Type:** Sentence-based, with 10-line sliding window  
-**Why:** Sentence tokenization preserves semantic boundaries, ensuring meaningful context during retrieval.
+**Why:** Sentence tokenization preserves semantic boundaries, ensuring meaningful context during retrieval. Paragraph chunking was attempted and lead to overwhelming context volume and wrong answer retrivals. 
 
 ---
 
@@ -178,6 +178,7 @@ were used with worse results.
 - Better chunk granularity
 - Advanced reranking
 - Query expansion techniques
+- Using paid chat models like Open AI would have probably provided better answers, even with vague queries. 
 
 ---
 
