@@ -206,9 +206,3 @@ were used with worse results.
 - ✅ Evaluation via groundedness + relevance
 
 ---
-
-## 🧠 Future Work
-
-- Add LangChain integration
-- Use MongoDB or Chroma for scalable vector store
-- Fine-tune QA model with domain-specific Bengali examples
