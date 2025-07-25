@@ -159,7 +159,11 @@ Answer: ৭ আগস্ট, ১৯৪১ / ২২ শ্রাবণ, ১৩৪
 **Why:** It supports Bengali and English, and produces high-quality sentence embeddings optimized for semantic similarity. 
 Other models like "l3cube-pune/bengali-sentence-similarity-sbert", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 were used with worse results.
-
+**How it works:**
+- Tokenization: It splits the input sentence into tokens using a multilingual tokenizer.
+- Transformer Layers: Tokens are passed through multiple transformer layers where self-attention helps the model understand relationships between words in context.
+- Sentence Embedding: The output embeddings are pooled (using mean pooling) into a single dense vector that represents the entire sentence's semantic meaning.
+- Similarity via Cosine Distance: These embeddings are then used for similarity comparisons using cosine similarity, enabling retrieval of relevant contexts.
 ---
 
 ### 4. **Similarity & Storage Method**
