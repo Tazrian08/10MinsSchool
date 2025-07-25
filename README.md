@@ -66,7 +66,7 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
    python extraction.py  # Generates `text.txt`
    ```
 
-5. **Run the API**
+5. **Run the RAG pipeline**
    ```bash
    python RAG.py
    ```
