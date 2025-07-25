@@ -12,6 +12,7 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
 - Embedding + FAISS vector store for similarity search
 - RAG-based QA using XLM-RoBERTa
 - REST API for querying
+- Chat History
 - Evaluation: relevance score + groundedness check
 
 ---
@@ -65,7 +66,7 @@ This project is a Level-1 AI Engineer assessment solution for building a **Retri
    python extraction.py  # Generates `text.txt`
    ```
 
-5. **Run the API**
+5. **Run the RAG pipeline**
    ```bash
    python RAG.py
    ```
@@ -123,7 +124,7 @@ Question: অপরিচিতা কোন পত্রিকায় প্�
 Answer: সবুজপত্র
 
 Question: When did Rabindranath Tagore die?
-Answer: ৭ আগস্ট, ১৯৪১
+Answer: ৭ আগস্ট, ১৯৪১ / ২২ শ্রাবণ, ১৩৪৮ বঙ্গাব্দ
 ```
 
 ---
@@ -149,7 +150,7 @@ Answer: ৭ আগস্ট, ১৯৪১
 
 ### 2. **Chunking Strategy**
 **Type:** Sentence-based, with 10-line sliding window  
-**Why:** Sentence tokenization preserves semantic boundaries, ensuring meaningful context during retrieval.
+**Why:** Sentence tokenization preserves semantic boundaries, ensuring meaningful context during retrieval. Paragraph chunking was attempted and lead to overwhelming context volume and wrong answer retrivals. 
 
 ---
 
@@ -177,6 +178,7 @@ were used with worse results.
 - Better chunk granularity
 - Advanced reranking
 - Query expansion techniques
+- Using paid chat models like Open AI would have probably provided better answers, even with vague queries. 
 
 ---
 
@@ -202,7 +204,6 @@ were used with worse results.
 
 - ✅ REST API implemented via Flask
 - ✅ Evaluation via groundedness + relevance
-- ⛔ No front-end GUI or LangChain used for this Level-1 demo
 
 ---
 
